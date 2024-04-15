@@ -7,19 +7,18 @@ import 'package:provider/provider.dart';
 class RepoScreen extends StatelessWidget {
   const RepoScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<RepoViewModel>();
     // 다른 화면이므로 UserviewModel 은 쓰지 않는게 좋겠다.
 
     print(viewModel.repos);
-    return const Scaffold(body:
-      SingleChildScrollView(child:
-        Column(children: [
-
-
-        ],),)
-      ,)
+    return const Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [],
+        ),
+      ),
+    );
   }
 }
