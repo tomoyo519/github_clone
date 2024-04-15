@@ -32,9 +32,74 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ))),
         ),
         user != null
-            ? CircleAvatar(
-                radius: MediaQuery.sizeOf(context).width * 0.5,
-                backgroundImage: NetworkImage(user.avatarUrl),
+            ? Column(
+                children: [
+                  CircleAvatar(
+                    radius: MediaQuery.sizeOf(context).width * 0.5,
+                    backgroundImage: NetworkImage(user.avatarUrl),
+                  ),
+                  Text(user.name),
+                  Text(user.html_url.split('/')[3]),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Text('Type : '), Text(user.type)],
+                  ),
+                  Text(user.bio),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.group),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+                        child: Text(
+                          user.followers.toString(),
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      Text('followers  ·  '),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+                        child: Text(
+                          user.following.toString(),
+                          style: TextStyle(fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                      Text('following')
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [Icon(Icons.location_on), Text(user.location)],
+                  ),
+                  user.email != ''
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Icon(Icons.email), Text(user.email)],
+                        )
+                      : const SizedBox(),
+                  user.email != ''
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [Icon(Icons.apartment), Text(user.company)],
+                        )
+                      : const SizedBox(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.local_mall),
+                      Text('Total Public repos : '),
+                      Text(user.publicRepos.toString())
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.home),
+                      // Text('Total Public repos : '),
+                      Text(user.blog)
+                    ],
+                  )
+                ],
               )
             : const SizedBox(),
       ],
