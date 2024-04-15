@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_clone/presentation/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,18 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(),
+      home: const ProfileScreen(),
     );
   }
 }
