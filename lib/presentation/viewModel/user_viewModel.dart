@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_clone/data/model/user.dart';
-import 'package:github_clone/repository/user_repositoryImpl.dart';
+import 'package:github_clone/repository/user_repository_Impl.dart';
 
 class UserViewModel with ChangeNotifier {
   final UserRepositoryImpl _userRepositoryImpl;
