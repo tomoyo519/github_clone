@@ -1,6 +1,5 @@
+import 'package:github_clone/data/dto/UserDto.dart';
 import 'package:github_clone/data/model/user.dart';
-
-import '../data/dto/UserDto.dart';
 
 extension ToUser on UserDto {
   User toUser() {
