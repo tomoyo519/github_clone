@@ -70,24 +70,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     user.location != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [const Icon(Icons.location_on), Text(user.location)],
+                            children: [
+                              const Icon(Icons.location_on),
+                              Text(user.location)
+                            ],
                           )
                         : const SizedBox(),
                     user.email != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [const Icon(Icons.email), Text(user.email)],
+                            children: [
+                              const Icon(Icons.email),
+                              Text(user.email)
+                            ],
                           )
                         : const SizedBox(),
                     user.company != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [const Icon(Icons.apartment), Text(user.company)],
+                            children: [
+                              const Icon(Icons.apartment),
+                              Text(user.company)
+                            ],
                           )
                         : const SizedBox(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [const Icon(Icons.local_mall), const Text('Total Public repos : '), Text(user.publicRepos.toString())],
+                      children: [
+                        const Icon(Icons.local_mall),
+                        const Text('Total Public repos : '),
+                        Text(user.publicRepos.toString())
+                      ],
                     ),
                     user.blog != ''
                         ? Row(
@@ -107,7 +120,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.local_mall), label: 'Repository'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.local_mall), label: 'Repository'),
         ],
       ),
     );
