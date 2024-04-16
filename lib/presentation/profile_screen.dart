@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_clone/presentation/viewModel/user_viewModel.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -70,37 +71,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     user.location != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.location_on),
-                              Text(user.location)
-                            ],
+                            children: [const Icon(Icons.location_on), Text(user.location)],
                           )
                         : const SizedBox(),
                     user.email != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.email),
-                              Text(user.email)
-                            ],
+                            children: [const Icon(Icons.email), Text(user.email)],
                           )
                         : const SizedBox(),
                     user.company != ''
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.apartment),
-                              Text(user.company)
-                            ],
+                            children: [const Icon(Icons.apartment), Text(user.company)],
                           )
                         : const SizedBox(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.local_mall),
-                        const Text('Total Public repos : '),
-                        Text(user.publicRepos.toString())
-                      ],
+                      children: [const Icon(Icons.local_mall), const Text('Total Public repos : '), Text(user.publicRepos.toString())],
                     ),
                     user.blog != ''
                         ? Row(
@@ -118,10 +106,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+          switch (value) {
+            case 0:
+              context.push('/');
+            case 1:
+              context.push('/repo');
+          }
+        },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.local_mall), label: 'Repository'),
+              icon: Icon(
+                Icons.home,
+                color: Colors.purpleAccent,
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.local_mall), label: 'Repository'),
         ],
       ),
     );
