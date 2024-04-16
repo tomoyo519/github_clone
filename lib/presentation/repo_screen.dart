@@ -1,26 +1,29 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:github_clone/data/model/user.dart';
 import 'package:github_clone/presentation/viewModel/repo_view_model.dart';
-import 'package:github_clone/presentation/viewModel/user_viewModel.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 class RepoScreen extends StatelessWidget {
-  const RepoScreen({super.key});
+  final GoRouterState? state;
 
+  const RepoScreen(GoRouterState this.state, {super.key});
+  //생성자 뚫어서
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<RepoViewModel>();
+    final User user = state?.extra as User;
     // 다른 화면이므로 UserviewModel 은 쓰지 않는게 좋겠다.
 
     print(viewModel.repos);
     return Scaffold(
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Text(
-              'RepoScreen',
-              style: TextStyle(fontSize: 50),
+              user.html_url.split('/')[3],
+              style: const TextStyle(fontSize: 50),
             )
           ],
         ),

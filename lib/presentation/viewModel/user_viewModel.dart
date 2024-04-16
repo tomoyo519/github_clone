@@ -17,6 +17,5 @@ class UserViewModel with ChangeNotifier {
     user = await _userRepositoryImpl.getUser(id);
     _isLoading = false;
     notifyListeners();
-    print(user);
   }
 }

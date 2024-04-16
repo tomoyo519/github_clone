@@ -29,7 +29,7 @@ final GoRouter _route = GoRouter(
       builder: (context, state) {
         return ChangeNotifierProvider(
           create: (context) => RepoViewModel(repoRepositoryImpl: RepoRepositoryImpl(GitUserDataSource())),
-          child: const RepoScreen(),
+          child: RepoScreen(state),
         );
       },
     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_clone/data/model/user.dart';
 import 'package:github_clone/presentation/viewModel/user_viewModel.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -111,7 +112,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             case 0:
               context.push('/');
             case 1:
-              context.push('/repo');
+              // TODO: 타입캐스팅해서 넘김
+              context.push('/repo', extra: viewModel.user as User);
           }
         },
         items: const [
